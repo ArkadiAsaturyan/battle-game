@@ -45,7 +45,6 @@ namespace Assets.Script.Views
             _opponentResponseBody = await GetOpponentDataAsync(URL);
             if (_opponentResponseBody != null)
             {
-                oppponentName.text = _opponentResponseBody.OpponentData[0].Name.FirstName;
                 _imageUrl = _opponentResponseBody.OpponentData[0].Picture.LargePictureUrl;
             }
 
@@ -53,6 +52,7 @@ namespace Assets.Script.Views
             if (_texture2D != null)
             {
                 opponentAvatar.texture = _texture2D;
+                oppponentName.text = _opponentResponseBody.OpponentData[0].Name.FirstName;
             }
 
             loadingScreen.gameObject.SetActive(false);
