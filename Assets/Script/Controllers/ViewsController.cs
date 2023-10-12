@@ -12,9 +12,10 @@ namespace Assets.Script.Controllers
     public class ViewsController : MonoBehaviour
     {
         [SerializeField] private PlayerData playerData;
+        [SerializeField] private RectTransform canvas;
         [SerializeField] private RegistrationView registrationViewPrefab;
         [SerializeField] private SearchOpponentView searchOpponentViewPrefab;
-        [SerializeField] private RectTransform canvas;
+        [SerializeField] private BattleView battleViewPrefab;
 
         private void Start()
         {
@@ -41,6 +42,13 @@ namespace Assets.Script.Controllers
         private void ShowSearchOpponentView()
         {
             SearchOpponentView searchOpponentView = Instantiate(searchOpponentViewPrefab, canvas);
+            searchOpponentView.StartBattleButtonClicked += ShowBattleView;
+        }
+
+        private void ShowBattleView(string opponentName)
+        {
+            BattleView battleView = Instantiate(battleViewPrefab, canvas);
+            battleView.Initialize(opponentName);
         }
     }
 }

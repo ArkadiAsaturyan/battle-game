@@ -22,8 +22,10 @@ namespace Assets.Script.Views
         [SerializeField] private TextMeshProUGUI oppponentName;
         [SerializeField] private RawImage opponentAvatar;
         [SerializeField] private Button searchButton;
-        [SerializeField] private Button battleButton;
+        [SerializeField] private Button startBattleButton;
         [SerializeField] private Image loadingScreen;
+
+        public Action<string> StartBattleButtonClicked;
 
         private const string URL = "https://randomuser.me/api/";
         private string _imageUrl;
@@ -36,6 +38,13 @@ namespace Assets.Script.Views
             playerName.text = playerData.PlayerName;
             balance.text = playerData.Balance.ToString();
             searchButton.onClick.AddListener(SearchForOpponent);
+            startBattleButton.onClick.AddListener(StartBattle);
+        }
+
+        private void StartBattle()
+        {
+            StartBattleButtonClicked.Invoke(oppponentName.text);
+            Destroy(gameObject);
         }
 
         private async void SearchForOpponent()

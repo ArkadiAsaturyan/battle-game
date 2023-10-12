@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 8800541071676009503}
   - component: {fileID: 476176845162548449}
   m_Layer: 5
-  m_Name: BattleButton
+  m_Name: StartBattleButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -692,7 +692,7 @@ MonoBehaviour:
   oppponentName: {fileID: 7677244696222934057}
   opponentAvatar: {fileID: 3859074657575849391}
   searchButton: {fileID: 1302837339035391274}
-  battleButton: {fileID: 476176845162548449}
+  startBattleButton: {fileID: 476176845162548449}
   loadingScreen: {fileID: 6065953975947130225}
 --- !u!1 &3880324495138661179
 GameObject:
