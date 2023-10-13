@@ -6,7 +6,6 @@ namespace Assets.Script.Controllers
 {
     public class ViewsController : MonoBehaviour
     {
-        [SerializeField] private PlayerData playerData;
         [SerializeField] private RectTransform canvas;
         [SerializeField] private RegistrationView registrationViewPrefab;
         [SerializeField] private SearchOpponentView searchOpponentViewPrefab;
@@ -17,7 +16,7 @@ namespace Assets.Script.Controllers
 
         private void Start()
         {
-            if(string.IsNullOrEmpty(playerData.PlayerName)) 
+            if(string.IsNullOrEmpty(PlayerPrefs.GetString(PlayerConsts.PlayerName))) 
             {
                 ShowRegistrationView();
                 return;
