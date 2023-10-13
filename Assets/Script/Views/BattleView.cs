@@ -1,5 +1,4 @@
-﻿using Assets.Script.Data;
-using System;
+﻿using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +7,6 @@ namespace Assets.Script.Views
 {
     public class BattleView : MonoBehaviour
     {
-        [SerializeField] private PlayerData playerData;
         [SerializeField] private TextMeshProUGUI opponentName;
         [SerializeField] private Button attackOpponentButton;
         [SerializeField] private Image healthBar;

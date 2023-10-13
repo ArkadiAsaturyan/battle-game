@@ -11,7 +11,6 @@ namespace Assets.Script.Views
 {
     public class SearchOpponentView : MonoBehaviour
     {
-        [SerializeField] private PlayerData playerData;
         [SerializeField] private TextMeshProUGUI playerName;
         [SerializeField] private TextMeshProUGUI balance;
         [SerializeField] private TextMeshProUGUI oppponentName;
@@ -30,8 +29,8 @@ namespace Assets.Script.Views
         private void Start()
         {
             SearchForOpponent();
-            playerName.text = playerData.PlayerName;
-            balance.text = playerData.Balance.ToString();
+            playerName.text = PlayerPrefs.GetString(PlayerConsts.PlayerName);
+            balance.text = PlayerPrefs.GetInt(PlayerConsts.Balance).ToString();
             searchButton.onClick.AddListener(SearchForOpponent);
             startBattleButton.onClick.AddListener(() => StartBattleButtonClicked.Invoke(oppponentName.text));
         }

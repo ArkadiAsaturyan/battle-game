@@ -8,7 +8,6 @@ namespace Assets.Script.Views
 {
     public class ResultView : MonoBehaviour
     {
-        [SerializeField] private PlayerData playerData;
         [SerializeField] private TextMeshProUGUI battleDescription;
         [SerializeField] private TextMeshProUGUI reward;
         [SerializeField] private Button continueButton;
@@ -27,7 +26,9 @@ namespace Assets.Script.Views
             battleDescription.text = $"Бой с {opponentName}";
             int rewardAmount = UnityEngine.Random.Range(rewardMin, rewardMax);
             reward.text = rewardAmount.ToString();
-            playerData.ChangeBalance(rewardAmount);
+            int currentBalance = PlayerPrefs.GetInt(PlayerConsts.Balance);
+            currentBalance += rewardAmount;
+            PlayerPrefs.SetInt(PlayerConsts.Balance, currentBalance);
         }
     }
 }
