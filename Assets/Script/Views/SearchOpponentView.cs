@@ -1,11 +1,6 @@
 ﻿using Assets.Script.Data;
 using Newtonsoft.Json;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -38,13 +33,7 @@ namespace Assets.Script.Views
             playerName.text = playerData.PlayerName;
             balance.text = playerData.Balance.ToString();
             searchButton.onClick.AddListener(SearchForOpponent);
-            startBattleButton.onClick.AddListener(StartBattle);
-        }
-
-        private void StartBattle()
-        {
-            StartBattleButtonClicked.Invoke(oppponentName.text);
-            Destroy(gameObject);
+            startBattleButton.onClick.AddListener(() => StartBattleButtonClicked.Invoke(oppponentName.text));
         }
 
         private async void SearchForOpponent()

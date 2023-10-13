@@ -262,7 +262,11 @@ MonoBehaviour:
   playerData: {fileID: 11400000, guid: cd7a7f0a83a4fc5429b08b936e4ac168, type: 2}
   opponentName: {fileID: 7677244696222934057}
   attackOpponentButton: {fileID: 476176845162548449}
-  healthProgress: {fileID: 1124000823704108236}
+  healthBar: {fileID: 1124000823704108236}
+  opponentHealthMin: 50
+  opponentHealthMax: 100
+  damageMin: 5
+  damageMax: 10
 --- !u!1 &3770620141376431295
 GameObject:
   m_ObjectHideFlags: 0

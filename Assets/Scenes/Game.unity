@@ -414,9 +414,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: cd7a7f0a83a4fc5429b08b936e4ac168, type: 2}
+  canvas: {fileID: 238613101}
   registrationViewPrefab: {fileID: 6246645492083361266, guid: 8bf40f5087f527c43a532fe57843ed18, type: 3}
   searchOpponentViewPrefab: {fileID: 863945445693259356, guid: 6a118edb3db45fe49bb92b75b43fee13, type: 3}
-  canvas: {fileID: 238613101}
+  battleViewPrefab: {fileID: 557898519910410658, guid: f3584015404193745ae60b6c91125165, type: 3}
+  resultViewPrefab: {fileID: -5048597234230830966, guid: fc0954ed93da8ee4686229e4ec32ceb7, type: 3}
 --- !u!4 &1977744808
 Transform:
   m_ObjectHideFlags: 0

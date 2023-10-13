@@ -1,10 +1,5 @@
 ﻿using Assets.Script.Data;
 using Assets.Script.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Assets.Script.Controllers
@@ -16,6 +11,9 @@ namespace Assets.Script.Controllers
         [SerializeField] private RegistrationView registrationViewPrefab;
         [SerializeField] private SearchOpponentView searchOpponentViewPrefab;
         [SerializeField] private BattleView battleViewPrefab;
+        [SerializeField] private ResultView resultViewPrefab;
+
+        private GameObject _currentView;
 
         private void Start()
         {
@@ -24,31 +22,43 @@ namespace Assets.Script.Controllers
                 ShowRegistrationView();
                 return;
             }
-            ShowSearchOpponentView();
-            
-        }
-
-        private void SubscribeEvents()
-        {
-            
+            ShowSearchOpponentView();            
         }
 
         private void ShowRegistrationView()
         {
             RegistrationView registrationView = Instantiate(registrationViewPrefab, canvas);
             registrationView.ContinueButtonClicked += ShowSearchOpponentView;
+            _currentView = registrationView.gameObject;
         }
 
         private void ShowSearchOpponentView()
         {
             SearchOpponentView searchOpponentView = Instantiate(searchOpponentViewPrefab, canvas);
             searchOpponentView.StartBattleButtonClicked += ShowBattleView;
+            if(_currentView != null)
+            {
+                Destroy(_currentView);
+            }
+            _currentView = searchOpponentView.gameObject;
         }
 
         private void ShowBattleView(string opponentName)
         {
             BattleView battleView = Instantiate(battleViewPrefab, canvas);
             battleView.Initialize(opponentName);
+            battleView.OnEndBattle += ShowResultView;
+            Destroy(_currentView);
+            _currentView = battleView.gameObject;
+        }
+
+        private void ShowResultView(string opponentName)
+        {
+            ResultView resultView = Instantiate(resultViewPrefab, canvas);
+            resultView.Initialize(opponentName);
+            resultView.ContinueButtonClicked += ShowSearchOpponentView;
+            Destroy(_currentView);
+            _currentView = resultView.gameObject;
         }
     }
 }

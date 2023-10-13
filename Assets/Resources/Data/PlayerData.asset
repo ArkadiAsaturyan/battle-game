@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c785776e31e57347891e293099496b8, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  playerName: alik
-  balance: 100
+  playerName: Arkadi
+  balance: 16077
